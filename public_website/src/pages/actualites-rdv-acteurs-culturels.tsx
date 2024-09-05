@@ -247,7 +247,7 @@ export const getStaticProps = (async () => {
     pagination: {},
     filters: {
       category: {
-        $eqi: ['Article', 'Évènement', 'Partenariat', 'Rencontre'],
+        $eqi: ['Déplacement', 'Évènement', 'Partenariat', 'Les coulisses du pass'],
       },
       pageLocalisation: {
         $containsi: 'Acteurs culturels',

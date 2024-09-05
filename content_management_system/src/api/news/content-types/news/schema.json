@@ -19,10 +19,10 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "Article",
+        "Déplacement",
         "Évènement",
         "Partenariat",
-        "Rencontre"
+        "Les coulisses du pass"
       ],
       "required": true
     },

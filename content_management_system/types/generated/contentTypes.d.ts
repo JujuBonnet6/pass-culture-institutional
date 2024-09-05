@@ -1116,7 +1116,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     category: Attribute.Enumeration<
-      ['Article', '\u00C9v\u00E8nement', 'Partenariat', 'Rencontre']
+      ['D\u00E9placement', '\u00C9v\u00E8nement', 'Partenariat', 'Les coulisses du pass']
     > &
     Attribute.Required;
     date: Attribute.DateTime & Attribute.Required;

@@ -136,7 +136,7 @@ export const getStaticProps = (async () => {
   })
 
   const newsQuery = setQuery(
-    ['Article', 'Évènement', 'Partenariat', 'Rencontre'],
+    ['Déplacement', 'Évènement', 'Partenariat', 'Les coulisses du pass'],
     []
   )
 
