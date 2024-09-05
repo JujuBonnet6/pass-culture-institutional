@@ -38,50 +38,38 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "category": {
       "type": "enumeration",
-      "enum": ["Salon"],
+      "enum": [
+        "Salon"
+      ],
       "required": true
     },
     "localisation": {
       "type": "enumeration",
       "enum": [
-        "Aucune",
-        "Aquitaine",
-        "Auvergne",
         "Auvergne-Rhône-Alpes",
-        "Basse-Normandie",
-        "Bourgogne",
         "Bourgogne-Franche-Comté",
         "Bretagne",
-        "Centre",
-        "Champagne-Ardenne",
+        "Centre-Val de Loire",
         "Corse",
-        "Franche-Comté",
-        "Grand-Est",
+        "Grand Est",
         "Guadeloupe",
         "Guyane",
-        "Haute-Normandie",
         "Hauts-de-France",
         "Île-de-France",
-        "La-Réunion",
-        "Languedoc-Roussillon",
-        "Languedoc-Roussillon-Midi-Pyrénées",
-        "Limousin",
-        "Lorraine",
+        "La Réunion",
         "Martinique",
         "Mayotte",
-        "Midi-Pyrénées",
-        "Nord-Pas-de-Calais",
         "Normandie",
         "Nouvelle-Aquitaine",
-        "Pays-de-la-Loire",
-        "Picardie",
-        "Poitou-Charentes",
-        "Provence-Alpes-Côte d'Azur",
-        "Rhône-Alpes"
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d'Azur"
       ],
       "required": true
     },
@@ -124,7 +112,10 @@
     },
     "pageLocalisation": {
       "type": "customField",
-      "options": ["Acteurs culturels", "S’informer - presse"],
+      "options": [
+        "Acteurs culturels",
+        "S’informer - presse"
+      ],
       "customField": "plugin::multi-select.multi-select"
     }
   }

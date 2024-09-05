@@ -19,15 +19,15 @@ export interface AdminPermission extends Schema.CollectionType {
   };
   attributes: {
     action: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     actionParameters: Attribute.JSON & Attribute.DefaultTo<{}>;
     subject: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     properties: Attribute.JSON & Attribute.DefaultTo<{}>;
     conditions: Attribute.JSON & Attribute.DefaultTo<[]>;
     role: Attribute.Relation<'admin::permission', 'manyToOne', 'admin::role'>;
@@ -38,13 +38,13 @@ export interface AdminPermission extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'admin::permission',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -67,41 +67,41 @@ export interface AdminUser extends Schema.CollectionType {
   };
   attributes: {
     firstname: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     lastname: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     username: Attribute.String;
     email: Attribute.Email &
-      Attribute.Required &
-      Attribute.Private &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Attribute.Required &
+    Attribute.Private &
+    Attribute.Unique &
+    Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     password: Attribute.Password &
-      Attribute.Private &
-      Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Attribute.Private &
+    Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     resetPasswordToken: Attribute.String & Attribute.Private;
     registrationToken: Attribute.String & Attribute.Private;
     isActive: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
+    Attribute.Private &
+    Attribute.DefaultTo<false>;
     roles: Attribute.Relation<'admin::user', 'manyToMany', 'admin::role'> &
-      Attribute.Private;
+    Attribute.Private;
     blocked: Attribute.Boolean & Attribute.Private & Attribute.DefaultTo<false>;
     preferedLanguage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'admin::user', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'admin::user', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -124,17 +124,17 @@ export interface AdminRole extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.Unique &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     code: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.Unique &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     description: Attribute.String;
     users: Attribute.Relation<'admin::role', 'manyToMany', 'admin::user'>;
     permissions: Attribute.Relation<
@@ -145,9 +145,9 @@ export interface AdminRole extends Schema.CollectionType {
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'admin::role', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'admin::role', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -170,24 +170,24 @@ export interface AdminApiToken extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.Unique &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     description: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }> &
-      Attribute.DefaultTo<''>;
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }> &
+    Attribute.DefaultTo<''>;
     type: Attribute.Enumeration<['read-only', 'full-access', 'custom']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'read-only'>;
+    Attribute.Required &
+    Attribute.DefaultTo<'read-only'>;
     accessKey: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     lastUsedAt: Attribute.DateTime;
     permissions: Attribute.Relation<
       'admin::api-token',
@@ -203,13 +203,13 @@ export interface AdminApiToken extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'admin::api-token',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -232,10 +232,10 @@ export interface AdminApiTokenPermission extends Schema.CollectionType {
   };
   attributes: {
     action: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     token: Attribute.Relation<
       'admin::api-token-permission',
       'manyToOne',
@@ -248,13 +248,13 @@ export interface AdminApiTokenPermission extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'admin::api-token-permission',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -277,21 +277,21 @@ export interface AdminTransferToken extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.Unique &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     description: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }> &
-      Attribute.DefaultTo<''>;
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }> &
+    Attribute.DefaultTo<''>;
     accessKey: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     lastUsedAt: Attribute.DateTime;
     permissions: Attribute.Relation<
       'admin::transfer-token',
@@ -307,13 +307,13 @@ export interface AdminTransferToken extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'admin::transfer-token',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -336,10 +336,10 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
   attributes: {
     action: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     token: Attribute.Relation<
       'admin::transfer-token-permission',
       'manyToOne',
@@ -352,13 +352,13 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'admin::transfer-token-permission',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -399,13 +399,13 @@ export interface PluginUploadFile extends Schema.CollectionType {
       'manyToOne',
       'plugin::upload.folder'
     > &
-      Attribute.Private;
+    Attribute.Private;
     folderPath: Attribute.String &
-      Attribute.Required &
-      Attribute.Private &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+    Attribute.Required &
+    Attribute.Private &
+    Attribute.SetMinMax<{
+      min: 1;
+    }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -413,13 +413,13 @@ export interface PluginUploadFile extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.file',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -440,10 +440,10 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMax<{
+      min: 1;
+    }>;
     pathId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     parent: Attribute.Relation<
       'plugin::upload.folder',
@@ -461,10 +461,10 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       'plugin::upload.file'
     >;
     path: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMax<{
+      min: 1;
+    }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -472,13 +472,13 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.folder',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -515,13 +515,13 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -563,13 +563,13 @@ export interface PluginContentReleasesReleaseAction
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::content-releases.release-action',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -601,13 +601,13 @@ export interface ApiActualitesPassCultureActualitesPassCulture
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::actualites-pass-culture.actualites-pass-culture',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -640,13 +640,13 @@ export interface ApiActualitesRdvActeursCulturelActualitesRdvActeursCulturel
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::actualites-rdv-acteurs-culturel.actualites-rdv-acteurs-culturel',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -678,13 +678,13 @@ export interface ApiEtudesPassCultureEtudesPassCulture
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::etudes-pass-culture.etudes-pass-culture',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -709,43 +709,27 @@ export interface ApiEventEvent extends Schema.CollectionType {
     category: Attribute.Enumeration<['Salon']> & Attribute.Required;
     localisation: Attribute.Enumeration<
       [
-        'Aucune',
-        'Aquitaine',
-        'Auvergne',
-        'Auvergne-Rh\u00F4ne-Alpes',
-        'Basse-Normandie',
-        'Bourgogne',
-        'Bourgogne-Franche-Comt\u00E9',
-        'Bretagne',
-        'Centre',
-        'Champagne-Ardenne',
-        'Corse',
-        'Franche-Comt\u00E9',
-        'Grand-Est',
-        'Guadeloupe',
-        'Guyane',
-        'Haute-Normandie',
-        'Hauts-de-France',
-        '\u00CEle-de-France',
-        'La-R\u00E9union',
-        'Languedoc-Roussillon',
-        'Languedoc-Roussillon-Midi-Pyr\u00E9n\u00E9es',
-        'Limousin',
-        'Lorraine',
-        'Martinique',
-        'Mayotte',
-        'Midi-Pyr\u00E9n\u00E9es',
-        'Nord-Pas-de-Calais',
-        'Normandie',
-        'Nouvelle-Aquitaine',
-        'Pays-de-la-Loire',
-        'Picardie',
-        'Poitou-Charentes',
-        "Provence-Alpes-C\u00F4te d'Azur",
-        'Rh\u00F4ne-Alpes'
+        "Auvergne-Rh\u00F4ne-Alpes",
+        "Bourgogne-Franche-Comt\u00E9",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Guadeloupe",
+        "Guyane",
+        "Hauts-de-France",
+        "\u00CEle-de-France",
+        "La R\u00E9union",
+        "Martinique",
+        "Mayotte",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-C\u00F4te d'Azur"
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     secteur: Attribute.Enumeration<
       [
         'Aucun',
@@ -757,7 +741,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
         'Offres num\u00E9riques'
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     city: Attribute.String & Attribute.Required;
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     blocks: Attribute.DynamicZone<
@@ -771,10 +755,10 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     seo: Attribute.Component<'shared.seo'>;
     pageLocalisation: Attribute.JSON &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        ['Acteurs culturels', 'S\u2019informer - presse']
-      >;
+    Attribute.CustomField<
+      'plugin::multi-select.multi-select',
+      ['Acteurs culturels', 'S\u2019informer - presse']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -783,13 +767,13 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event.event',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -819,13 +803,13 @@ export interface ApiFooterFooter extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::footer.footer',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -842,9 +826,9 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
   attributes: {
     targetItems: Attribute.Component<'header.navigation-items', true> &
-      Attribute.Required;
+    Attribute.Required;
     aboutItems: Attribute.Component<'header.navigation-items', true> &
-      Attribute.Required;
+    Attribute.Required;
     login: Attribute.Component<'header.account-dropdown'> & Attribute.Required;
     signup: Attribute.Component<'header.account-dropdown'> & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -855,13 +839,13 @@ export interface ApiHeaderHeader extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::header.header',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -881,16 +865,16 @@ export interface ApiHelpHelp extends Schema.SingleType {
     cardText: Attribute.Component<'block.double-push-cta'> & Attribute.Required;
     social: Attribute.Component<'block.social-media'> & Attribute.Required;
     simplepushcta: Attribute.Component<'block.simple-push-cta'> &
-      Attribute.Required;
+    Attribute.Required;
     faq: Attribute.Component<'block.faq'> & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::help.help', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'api::help.help', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -911,7 +895,7 @@ export interface ApiHelpCulturalActorsHelpCulturalActors
     cardText: Attribute.Component<'block.double-push-cta'> & Attribute.Required;
     social: Attribute.Component<'block.social-media'> & Attribute.Required;
     simplepushcta: Attribute.Component<'block.simple-push-cta'> &
-      Attribute.Required;
+    Attribute.Required;
     faq: Attribute.Component<'block.faq'> & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
@@ -922,13 +906,13 @@ export interface ApiHelpCulturalActorsHelpCulturalActors
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::help-cultural-actors.help-cultural-actors',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -948,10 +932,10 @@ export interface ApiHelpTeachersHelpTeachers extends Schema.SingleType {
     cardText: Attribute.Component<'block.double-push-cta'> & Attribute.Required;
     social: Attribute.Component<'block.social-media'> & Attribute.Required;
     simplepushcta: Attribute.Component<'block.simple-push-cta'> &
-      Attribute.Required;
+    Attribute.Required;
     faq: Attribute.Component<'block.faq'> & Attribute.Required;
     latestStudies: Attribute.Component<'block.latest-news'> &
-      Attribute.Required;
+    Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -961,13 +945,13 @@ export interface ApiHelpTeachersHelpTeachers extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::help-teachers.help-teachers',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -984,25 +968,25 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
   attributes: {
     aboutSection: Attribute.Component<'block.centered-text'> &
-      Attribute.Required;
+    Attribute.Required;
     CTASection: Attribute.Component<'block.push-cta'> & Attribute.Required;
     socialMediaSection: Attribute.Component<'block.social-media'> &
-      Attribute.Required;
+    Attribute.Required;
     latestStudies: Attribute.Component<'block.latest-news'> &
-      Attribute.Required;
+    Attribute.Required;
     eligibilitySection: Attribute.Component<'home.eligibility-section'> &
-      Attribute.Required;
+    Attribute.Required;
     heroSection: Attribute.Component<'home.hero-section'> & Attribute.Required;
     recommendationsSection: Attribute.Component<'home.recommendations-section'> &
-      Attribute.Required;
+    Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1022,7 +1006,7 @@ export interface ApiListeJeuneListeJeune extends Schema.SingleType {
     buttonText: Attribute.Text;
     filtres: Attribute.Component<'common.filtre', true> & Attribute.Required;
     socialMediaSection: Attribute.Component<'block.social-media'> &
-      Attribute.Required;
+    Attribute.Required;
     separator: Attribute.Component<'block.separator'>;
     aide: Attribute.Component<'block.simple-push-cta'>;
     seo: Attribute.Component<'shared.seo'>;
@@ -1034,13 +1018,13 @@ export interface ApiListeJeuneListeJeune extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::liste-jeune.liste-jeune',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1072,13 +1056,13 @@ export interface ApiListeOffreListeOffre extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::liste-offre.liste-offre',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1108,13 +1092,13 @@ export interface ApiMasterMaster extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::master.master',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1134,49 +1118,33 @@ export interface ApiNewsNews extends Schema.CollectionType {
     category: Attribute.Enumeration<
       ['Article', '\u00C9v\u00E8nement', 'Partenariat', 'Rencontre']
     > &
-      Attribute.Required;
+    Attribute.Required;
     date: Attribute.DateTime & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     localisation: Attribute.Enumeration<
       [
-        'Aucune',
-        'Aquitaine',
-        'Auvergne',
-        'Auvergne-Rh\u00F4ne-Alpes',
-        'Basse-Normandie',
-        'Bourgogne',
-        'Bourgogne-Franche-Comt\u00E9',
-        'Bretagne',
-        'Centre',
-        'Champagne-Ardenne',
-        'Corse',
-        'Franche-Comt\u00E9',
-        'Grand-Est',
-        'Guadeloupe',
-        'Guyane',
-        'Haute-Normandie',
-        'Hauts-de-France',
-        '\u00CEle-de-France',
-        'La-R\u00E9union',
-        'Languedoc-Roussillon',
-        'Languedoc-Roussillon-Midi-Pyr\u00E9n\u00E9es',
-        'Limousin',
-        'Lorraine',
-        'Martinique',
-        'Mayotte',
-        'Midi-Pyr\u00E9n\u00E9es',
-        'Nord-Pas-de-Calais',
-        'Normandie',
-        'Nouvelle-Aquitaine',
-        'Pays-de-la-Loire',
-        'Picardie',
-        'Poitou-Charentes',
-        "Provence-Alpes-C\u00F4te d'Azur",
-        'Rh\u00F4ne-Alpes'
+        "Auvergne-Rh\u00F4ne-Alpes",
+        "Bourgogne-Franche-Comt\u00E9",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Guadeloupe",
+        "Guyane",
+        "Hauts-de-France",
+        "\u00CEle-de-France",
+        "La R\u00E9union",
+        "Martinique",
+        "Mayotte",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-C\u00F4te d'Azur"
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     secteur: Attribute.Enumeration<
       [
         'Aucun',
@@ -1188,7 +1156,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
         'Offres num\u00E9riques'
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     blocks: Attribute.DynamicZone<
       [
         'block.image',
@@ -1200,19 +1168,19 @@ export interface ApiNewsNews extends Schema.CollectionType {
     >;
     seo: Attribute.Component<'shared.seo'>;
     pageLocalisation: Attribute.JSON &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        ['Jeunes et parents', 'Acteurs culturels', 'S\u2019informer']
-      >;
+    Attribute.CustomField<
+      'plugin::multi-select.multi-select',
+      ['Jeunes et parents', 'Acteurs culturels', 'S\u2019informer']
+    >;
     aboveTitle: Attribute.String;
     emoji: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1238,13 +1206,13 @@ export interface ApiNotFoundNotFound extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::not-found.not-found',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1301,9 +1269,9 @@ export interface ApiPagePage extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1337,13 +1305,13 @@ export interface ApiPressePresse extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::presse.presse',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1369,49 +1337,33 @@ export interface ApiResourceResource extends Schema.CollectionType {
         'Ressource'
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     date: Attribute.DateTime & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     localisation: Attribute.Enumeration<
       [
-        'Aucune',
-        'Aquitaine',
-        'Auvergne',
-        'Auvergne-Rh\u00F4ne-Alpes',
-        'Basse-Normandie',
-        'Bourgogne',
-        'Bourgogne-Franche-Comt\u00E9',
-        'Bretagne',
-        'Centre',
-        'Champagne-Ardenne',
-        'Corse',
-        'Franche-Comt\u00E9',
-        'Grand-Est',
-        'Guadeloupe',
-        'Guyane',
-        'Haute-Normandie',
-        'Hauts-de-France',
-        '\u00CEle-de-France',
-        'La-R\u00E9union',
-        'Languedoc-Roussillon',
-        'Languedoc-Roussillon-Midi-Pyr\u00E9n\u00E9es',
-        'Limousin',
-        'Lorraine',
-        'Martinique',
-        'Mayotte',
-        'Midi-Pyr\u00E9n\u00E9es',
-        'Nord-Pas-de-Calais',
-        'Normandie',
-        'Nouvelle-Aquitaine',
-        'Pays-de-la-Loire',
-        'Picardie',
-        'Poitou-Charentes',
-        "Provence-Alpes-C\u00F4te d'Azur",
-        'Rh\u00F4ne-Alpes'
+        "Auvergne-Rh\u00F4ne-Alpes",
+        "Bourgogne-Franche-Comt\u00E9",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Guadeloupe",
+        "Guyane",
+        "Hauts-de-France",
+        "\u00CEle-de-France",
+        "La R\u00E9union",
+        "Martinique",
+        "Mayotte",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-C\u00F4te d'Azur"
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     secteur: Attribute.Enumeration<
       [
         'Aucun',
@@ -1423,7 +1375,7 @@ export interface ApiResourceResource extends Schema.CollectionType {
         'Offres num\u00E9riques'
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     blocks: Attribute.DynamicZone<
       [
         'block.centered-text',
@@ -1465,18 +1417,18 @@ export interface ApiResourceResource extends Schema.CollectionType {
         'CNRS'
       ]
     > &
-      Attribute.Required;
+    Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     pageLocalisation: Attribute.JSON &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'Enseignants',
-          'S\u2019informer - ressources',
-          'S\u2019informer - presse',
-          'S\u2019informer - \u00E9tudes'
-        ]
-      >;
+    Attribute.CustomField<
+      'plugin::multi-select.multi-select',
+      [
+        'Enseignants',
+        'S\u2019informer - ressources',
+        'S\u2019informer - presse',
+        'S\u2019informer - \u00E9tudes'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1485,13 +1437,13 @@ export interface ApiResourceResource extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::resource.resource',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1509,11 +1461,11 @@ export interface ApiRessourcepassRessourcepass extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     date: Attribute.DateTime &
-      Attribute.Required &
-      Attribute.DefaultTo<'2024-07-21T22:00:00.000Z'>;
+    Attribute.Required &
+    Attribute.DefaultTo<'2024-07-21T22:00:00.000Z'>;
     category: Attribute.Enumeration<['\u00C9tude', 'Document', 'Article']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'\u00C9tude'>;
+    Attribute.Required &
+    Attribute.DefaultTo<'\u00C9tude'>;
     cta: Attribute.Component<'common.link'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1523,13 +1475,13 @@ export interface ApiRessourcepassRessourcepass extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ressourcepass.ressourcepass',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1561,13 +1513,13 @@ export interface ApiRessourcesEnseignantRessourcesEnseignant
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ressources-enseignant.ressources-enseignant',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1599,13 +1551,13 @@ export interface ApiRessourcesPassCultureRessourcesPassCulture
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ressources-pass-culture.ressources-pass-culture',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
@@ -1624,37 +1576,37 @@ export interface ApiSimulatorSimulator extends Schema.SingleType {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     ageQuestion: Attribute.Component<'simulator.age-question'> &
-      Attribute.Required;
+    Attribute.Required;
     nationnalityQuestion: Attribute.Component<'simulator.radio-question'> &
-      Attribute.Required;
+    Attribute.Required;
     residencyQuestion: Attribute.Component<'simulator.radio-question'> &
-      Attribute.Required;
+    Attribute.Required;
     steps: Attribute.Component<'simulator.step', true> &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 3;
-        max: 3;
-      }>;
+    Attribute.Required &
+    Attribute.SetMinMax<{
+      min: 3;
+      max: 3;
+    }>;
     successScreen: Attribute.Component<'simulator.success-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     failureScreen: Attribute.Component<'simulator.failure-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     tooYoungScreen: Attribute.Component<'simulator.failure-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     tooOldScreen: Attribute.Component<'simulator.failure-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     amountScreen_15: Attribute.Component<'simulator.amount-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     amountScreen_16: Attribute.Component<'simulator.amount-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     amountScreen_17: Attribute.Component<'simulator.amount-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     amountScreen_18: Attribute.Component<'simulator.amount-screen'> &
-      Attribute.Required;
+    Attribute.Required;
     topEmoji: Attribute.String & Attribute.Required;
     bottomEmoji: Attribute.String & Attribute.Required;
     socialMedias: Attribute.Component<'block.social-media'> &
-      Attribute.Required;
+    Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     offres: Attribute.Component<'block.simple-push-cta'>;
     createdAt: Attribute.DateTime;
@@ -1665,13 +1617,13 @@ export interface ApiSimulatorSimulator extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::simulator.simulator',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
+    Attribute.Private;
   };
 }
 
